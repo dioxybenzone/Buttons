@@ -55,3 +55,10 @@ captureButton.addEventListener('click', () => {
 
 // Initialize camera on page load
 setupCamera();
+
+// Register the service worker for offline capabilities
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then(() => console.log("Service Worker Registered"))
+    .catch((error) => console.log("Service Worker Registration Failed:", error));
+}
